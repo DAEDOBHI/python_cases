@@ -1,7 +1,10 @@
-import traceback
-try:
-  raise Exception('error')
-except Exception as err:
-    trace_back = traceback.format_exc()
-    message = str(err) + " " + str(trace_back)
-    print(message)  
+from .utils.get_traceback import get_traceback
+
+def test_traceback():
+
+  try: 
+    raise Exception('Example error traceback')
+  except Exception as err:
+    message = get_traceback(str(err))  
+    print(message)
+test_traceback()    
